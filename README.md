@@ -31,7 +31,7 @@ You need GPG >= 2.2.12 that has __gpg-wks-client__, otherwise see alternative
 methods at https://wiki.gnupg.org/WKDHosting.
 
 ```
-gpg --list-options show-only-fpr-mbox -k "@yourdomain.com" | /usr/libexec/gpg-wks-client -v --install-key
+gpg --list-options show-only-fpr-mbox -k "@yourdomain.com" | $(gpgconf --list-dirs libexecdir)/gpg-wks-client -v --install-key
 
 ```
 
@@ -105,13 +105,13 @@ hosting works.
 Another method to test it is using `gpg-wks-client`:
 
 ```
-/usr/lib/gnupg/gpg-wks-client -v --check you@yourdomain.com
+$(gpgconf --list-dirs libexecdir)/gpg-wks-client -v --check you@yourdomain.com
 ```
 
 The output should look like this:
 
 ```
-$ /usr/lib/gnupg/gpg-wks-client -v --check rob@mihalyr.com
+$ $(gpgconf --list-dirs libexecdir)/gpg-wks-client -v --check rob@mihalyr.com
 gpg-wks-client: public key for 'rob@mihalyr.com' found via WKD
 gpg-wks-client: gpg: Total number processed: 1
 gpg-wks-client: fingerprint: 96E4FD37F2D56178E2B7E3A2C89FE343D529E0CF
