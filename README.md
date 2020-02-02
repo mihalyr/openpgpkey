@@ -23,7 +23,7 @@ root.
 
 ```
 cd openpgpkey  # assuming this is what the checked out repository is
-mkdir .well-known
+mkdir -p .well-known/openpgpkey
 cd .well-known
 ```
 
